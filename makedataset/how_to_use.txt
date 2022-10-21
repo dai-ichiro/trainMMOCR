@@ -1,0 +1,1 @@
+trdg -l ja -c 1000 -k 1 -rk -bl 1 -rbl -fd fonts -dt text.txt
