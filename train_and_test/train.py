@@ -1,13 +1,12 @@
 import os
-from mim.commands.download import download
 from mmcv import Config
 from mmocr.datasets import build_dataset
 from mmocr.models import build_detector
 from mmocr.apis import train_detector
-import os.path as osp
 
 def main():
     # You need to clone repository
+    # git clone https://github.com/open-mmlab/mmocr.git
     cfg = Config.fromfile('mmocr/configs/textrecog/sar/sar_r31_parallel_decoder_chinese.py')
 
     os.makedirs('output', exist_ok=True)
@@ -30,7 +29,6 @@ def main():
     cfg.train.img_prefix = 'img'
     cfg.test.img_prefix = 'img'
 
-
     # Dict file
     cfg.dict_file = 'dicts.txt'
     cfg.label_convertor.dict_file = 'dicts.txt'
@@ -49,7 +47,8 @@ def main():
     cfg.optimizer.lr = 0.001 /8
     cfg.seed = 0
     cfg.runner.max_epochs = 10 # default 5 
-    cfg.data.samples_per_gpu = 2
+    cfg.data.samples_per_gpu = 8
+    cfg.log_config.interval = 500
 
     cfg.dump('japanese_cfg.py')
 
