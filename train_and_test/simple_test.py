@@ -1,7 +1,9 @@
+import sys
 from mmocr.utils.ocr import MMOCR
 
+img = sys.argv[1]
+
 cfg = 'japanese_cfg.py'
-img = 'demo/3.jpg'
 checkpoint = 'output/latest.pth'
 
 ocr = MMOCR(
