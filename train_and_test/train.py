@@ -54,7 +54,7 @@ def main():
     datasets = [build_dataset(cfg.data.train)]
 
     model = build_detector(cfg.model)
-
+    model.CLASSES = datasets[0].CLASSES
     model.init_weights()
 
     train_detector(model, datasets, cfg, validate=True)
