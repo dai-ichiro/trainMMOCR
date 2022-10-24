@@ -1,4 +1,4 @@
-log_config = dict(interval=500, hooks=[dict(type='TextLoggerHook')])
+log_config = dict(interval=1000, hooks=[dict(type='TextLoggerHook')])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = None
@@ -9,7 +9,7 @@ mp_start_method = 'fork'
 optimizer = dict(type='Adam', lr=0.000125)
 optimizer_config = dict(grad_clip=None)
 lr_config = dict(policy='step', step=[3, 4])
-runner = dict(type='EpochBasedRunner', max_epochs=10)
+runner = dict(type='EpochBasedRunner', max_epochs=3)
 checkpoint_config = dict(interval=1)
 max_seq_len = 30
 dict_file = 'dicts.txt'
@@ -85,11 +85,11 @@ test_pipeline = [
 ]
 dataset_type = 'OCRDataset'
 train_prefix = 'data/chinese/'
-train_ann_file = 'train_label.txt'
+train_ann_file = 'train/labels.txt'
 train = dict(
     type='OCRDataset',
-    img_prefix='img',
-    ann_file='train_label.txt',
+    img_prefix='train',
+    ann_file='train/labels.txt',
     loader=dict(
         type='HardDiskLoader',
         repeat=1,
@@ -101,11 +101,11 @@ train = dict(
     pipeline=None,
     test_mode=False)
 test_prefix = 'data/chineseocr/'
-test_ann_file = 'test_label.txt'
+test_ann_file = 'test/labels.txt'
 test = dict(
     type='OCRDataset',
-    img_prefix='img',
-    ann_file='test_label.txt',
+    img_prefix='test',
+    ann_file='test/labels.txt',
     loader=dict(
         type='HardDiskLoader',
         repeat=1,
@@ -126,8 +126,8 @@ data = dict(
         datasets=[
             dict(
                 type='OCRDataset',
-                img_prefix='img',
-                ann_file='train_label.txt',
+                img_prefix='train',
+                ann_file='train/labels.txt',
                 loader=dict(
                     type='HardDiskLoader',
                     repeat=1,
@@ -165,8 +165,8 @@ data = dict(
         datasets=[
             dict(
                 type='OCRDataset',
-                img_prefix='img',
-                ann_file='test_label.txt',
+                img_prefix='test',
+                ann_file='test/labels.txt',
                 loader=dict(
                     type='HardDiskLoader',
                     repeat=1,
@@ -210,8 +210,8 @@ data = dict(
         datasets=[
             dict(
                 type='OCRDataset',
-                img_prefix='img',
-                ann_file='test_label.txt',
+                img_prefix='test',
+                ann_file='test/labels.txt',
                 loader=dict(
                     type='HardDiskLoader',
                     repeat=1,

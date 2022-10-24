@@ -17,15 +17,15 @@ def main():
     cfg.work_dir = 'output'
 
     # Path to annotation file
-    cfg.train_ann_file = 'train_label.txt'
-    cfg.train.ann_file= 'train_label.txt'
+    cfg.train_ann_file = 'train/labels.txt'
+    cfg.train.ann_file= 'train/labels.txt'
 
-    cfg.test_ann_file = 'test_label.txt'
-    cfg.test.ann_file = 'test_label.txt'
+    cfg.test_ann_file = 'test/labels.txt'
+    cfg.test.ann_file = 'test/labels.txt'
 
     # Paht to image folder
-    cfg.train.img_prefix = 'img'
-    cfg.test.img_prefix = 'img'
+    cfg.train.img_prefix = 'train'
+    cfg.test.img_prefix = 'test'
 
     # Dict file
     cfg.dict_file = 'dicts.txt'
@@ -44,9 +44,9 @@ def main():
     # Others
     cfg.optimizer.lr = 0.001 /8
     cfg.seed = 0
-    cfg.runner.max_epochs = 10 # default 5 
+    cfg.runner.max_epochs = 3 # default 5 
     cfg.data.samples_per_gpu = 8
-    cfg.log_config.interval = 500
+    cfg.log_config.interval = 1000
 
     cfg.dump('japanese_cfg.py')
 
