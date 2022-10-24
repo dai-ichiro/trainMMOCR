@@ -37,6 +37,7 @@ def main():
     cfg.device = 'cuda'
 
     # Others
+    cfg.max_seq_len = 40
     cfg.optimizer.lr = 0.001 /8
     cfg.seed = 0
     cfg.runner.max_epochs = 1 # default 5 

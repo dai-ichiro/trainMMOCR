@@ -11,13 +11,13 @@ optimizer_config = dict(grad_clip=None)
 lr_config = dict(policy='step', step=[3, 4])
 runner = dict(type='EpochBasedRunner', max_epochs=10)
 checkpoint_config = dict(interval=1)
-max_seq_len = 30
+max_seq_len = 35
 dict_file = 'dicts.txt'
 label_convertor = dict(
     type='AttnConvertor',
     dict_file=dict_file,
     with_unknown=True,
-    max_seq_len=30)
+    max_seq_len=max_seq_len)
 model = dict(
     type='SARNet',
     backbone=dict(type='ResNet31OCR'),
