@@ -5,7 +5,7 @@ from mmocr.models import build_detector
 from mmocr.apis import train_detector
 
 def main():
-    cfg = Config.fromfile('base_japanese_cfg.py')
+    cfg = Config.fromfile('SAR_japanese_cfg.py')
 
     os.makedirs('output', exist_ok=True)
 
