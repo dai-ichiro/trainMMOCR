@@ -17,10 +17,7 @@ def main():
     cfg.work_dir = 'output'
 
     # Path to annotation file
-    cfg.train_ann_file = 'train/labels.txt'
     cfg.train.ann_file= 'train/labels.txt'
-
-    cfg.test_ann_file = 'test/labels.txt'
     cfg.test.ann_file = 'test/labels.txt'
 
     # Paht to image folder
@@ -29,9 +26,7 @@ def main():
 
     # Dict file
     cfg.dict_file = 'dicts.txt'
-    cfg.label_convertor.dict_file = 'dicts.txt'
-    cfg.model.label_convertor.dict_file = 'dicts.txt'
-
+    
     # Modify data
     cfg.data.train.datasets = [cfg.train]
     cfg.data.val.datasets = [cfg.test]
@@ -44,8 +39,8 @@ def main():
     # Others
     cfg.optimizer.lr = 0.001 /8
     cfg.seed = 0
-    cfg.runner.max_epochs = 3 # default 5 
-    cfg.data.samples_per_gpu = 8
+    cfg.runner.max_epochs = 1 # default 5 
+    cfg.data.samples_per_gpu = 16
     cfg.log_config.interval = 1000
 
     cfg.dump('japanese_cfg.py')

@@ -15,7 +15,7 @@ max_seq_len = 30
 dict_file = 'dicts.txt'
 label_convertor = dict(
     type='AttnConvertor',
-    dict_file='dicts.txt',
+    dict_file=dict_file,
     with_unknown=True,
     max_seq_len=30)
 model = dict(
@@ -33,12 +33,7 @@ model = dict(
         d_k=512,
         pred_concat=True),
     loss=dict(type='SARLoss'),
-    label_convertor=dict(
-        type='AttnConvertor',
-        dict_file='dicts.txt',
-        with_unknown=True,
-        max_seq_len=30),
-    max_seq_len=30)
+    label_convertor=label_convertor)
 img_norm_cfg = dict(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -84,8 +79,6 @@ test_pipeline = [
         ])
 ]
 dataset_type = 'OCRDataset'
-train_prefix = 'data/chinese/'
-train_ann_file = 'train_label.txt'
 train = dict(
     type='OCRDataset',
     img_prefix='img',
@@ -100,8 +93,6 @@ train = dict(
             separator=' ')),
     pipeline=None,
     test_mode=False)
-test_prefix = 'data/chineseocr/'
-test_ann_file = 'test_label.txt'
 test = dict(
     type='OCRDataset',
     img_prefix='img',
