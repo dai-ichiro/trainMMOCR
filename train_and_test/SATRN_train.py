@@ -5,7 +5,7 @@ from mmocr.models import build_detector
 from mmocr.apis import train_detector
 
 def main():
-    cfg = Config.fromfile('satrn_academic.py')
+    cfg = Config.fromfile('SATRN_japanese_cfg.py')
 
     os.makedirs('satrn_output', exist_ok=True)
 
@@ -44,7 +44,7 @@ def main():
     cfg.data.samples_per_gpu = 16
     cfg.log_config.interval = 1000
 
-    cfg.dump('japanese_cfg.py')
+    cfg.dump('new_SATRN_cfg.py')
 
     # Build dataset
     datasets = [build_dataset(cfg.data.train)]

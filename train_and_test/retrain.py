@@ -5,7 +5,7 @@ from mmocr.models import build_detector
 from mmocr.apis import train_detector
 
 def main():
-    cfg = Config.fromfile('base_japanese_cfg.py')
+    cfg = Config.fromfile('SAR_japanese_cfg.py')
 
     os.makedirs('output', exist_ok=True)
 
@@ -50,7 +50,7 @@ def main():
 
     cfg.load_from = 'output/latest.pth'
 
-    cfg.dump('japanese_cfg.py')
+    cfg.dump('new_SAR_cfg.py')
 
     # Build dataset
     datasets = [build_dataset(cfg.data.train)]
