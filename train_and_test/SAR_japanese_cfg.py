@@ -11,13 +11,13 @@ optimizer_config = dict(grad_clip=None)
 lr_config = dict(policy='step', step=[3, 4])
 runner = dict(type='EpochBasedRunner', max_epochs=10)
 checkpoint_config = dict(interval=1)
-max_seq_len = 35
-dict_file = 'dicts.txt'
+
 label_convertor = dict(
     type='AttnConvertor',
-    dict_file=dict_file,
+    dict_file='dicts.txt',
     with_unknown=True,
-    max_seq_len=max_seq_len)
+    max_seq_len=35)
+
 model = dict(
     type='SARNet',
     backbone=dict(type='ResNet31OCR'),
@@ -35,50 +35,7 @@ model = dict(
     loss=dict(type='SARLoss'),
     label_convertor=label_convertor)
 img_norm_cfg = dict(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-train_pipeline = [
-    dict(type='LoadImageFromFile'),
-    dict(
-        type='ResizeOCR',
-        height=48,
-        min_width=48,
-        max_width=256,
-        keep_aspect_ratio=True,
-        width_downsample_ratio=0.25),
-    dict(type='ToTensorOCR'),
-    dict(type='NormalizeOCR', mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
-    dict(
-        type='Collect',
-        keys=['img'],
-        meta_keys=[
-            'filename', 'ori_shape', 'resize_shape', 'text', 'valid_ratio'
-        ])
-]
-test_pipeline = [
-    dict(type='LoadImageFromFile'),
-    dict(
-        type='MultiRotateAugOCR',
-        rotate_degrees=[0, 90, 270],
-        transforms=[
-            dict(
-                type='ResizeOCR',
-                height=48,
-                min_width=48,
-                max_width=256,
-                keep_aspect_ratio=True,
-                width_downsample_ratio=0.25),
-            dict(type='ToTensorOCR'),
-            dict(
-                type='NormalizeOCR', mean=[0.5, 0.5, 0.5], std=[0.5, 0.5,
-                                                                0.5]),
-            dict(
-                type='Collect',
-                keys=['img'],
-                meta_keys=[
-                    'filename', 'ori_shape', 'resize_shape', 'valid_ratio'
-                ])
-        ])
-]
-dataset_type = 'OCRDataset'
+
 train = dict(
     type='OCRDataset',
     img_prefix='img',
@@ -107,6 +64,7 @@ test = dict(
             separator=' ')),
     pipeline=None,
     test_mode=False)
+
 data = dict(
     samples_per_gpu=8,
     workers_per_gpu=2,
@@ -241,6 +199,7 @@ data = dict(
                         ])
                 ])
         ]))
+
 evaluation = dict(interval=1, metric='acc')
 work_dir = 'output'
 gpu_ids = range(0, 1)
