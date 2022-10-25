@@ -7,14 +7,14 @@ from mmocr.apis import train_detector
 def main():
     cfg = Config.fromfile('SAR_japanese_cfg.py')
 
-    os.makedirs('output', exist_ok=True)
+    os.makedirs('sar_output', exist_ok=True)
 
     ####
     ## modify configuration file
     ####
 
     # set output dir
-    cfg.work_dir = 'output'
+    cfg.work_dir = 'sar_output'
 
     # Path to annotation file
     cfg.train.ann_file= 'train/labels.txt'

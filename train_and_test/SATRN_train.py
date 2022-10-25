@@ -14,7 +14,7 @@ def main():
     ####
 
     # set output dir
-    cfg.work_dir = 'output'
+    cfg.work_dir = 'satrn_output'
 
     # Path to annotation file
     cfg.train.ann_file= 'train/labels.txt'
