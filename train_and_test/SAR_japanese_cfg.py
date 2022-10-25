@@ -201,7 +201,3 @@ data = dict(
         ]))
 
 evaluation = dict(interval=1, metric='acc')
-work_dir = 'output'
-gpu_ids = range(0, 1)
-device = 'cuda'
-seed = 0
