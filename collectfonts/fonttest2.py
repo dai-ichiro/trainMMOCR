@@ -6,7 +6,7 @@ os.makedirs('testresults', exist_ok=True)
 
 fonts = glob.glob('fonts/*.ttf')
 
-text = '「アート」\n【あーと】\n東京駅'
+text = '「アート」\n【あーと】\n東京駅\n壱弐参'
 
 for i, _font in enumerate(fonts):
 
