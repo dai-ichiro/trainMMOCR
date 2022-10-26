@@ -24,8 +24,10 @@ def main():
     cfg.train.img_prefix = 'train'
     cfg.test.img_prefix = 'test'
 
-    # Dict file
-    cfg.label_convertor.dict_file='dicts.txt',
+    # Modify label_convertor
+    cfg.label_convertor.dict_file='dicts.txt'
+    cfg.label_convertor.max_seq_len = 40
+    cfg.model.label_convertor = cfg.label_convertor
     
     # Modify data
     cfg.data.train.datasets = [cfg.train]
@@ -37,7 +39,6 @@ def main():
     cfg.device = 'cuda'
 
     # Others
-    cfg.label_convertor.max_seq_len = 40
     cfg.optimizer.lr = 0.001 /8
     cfg.seed = 0
     cfg.runner.max_epochs = 1 # default 5 

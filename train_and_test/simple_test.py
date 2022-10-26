@@ -3,8 +3,8 @@ from mmocr.utils.ocr import MMOCR
 
 img = sys.argv[1]
 
-cfg = 'japanese_cfg.py'
-checkpoint = 'output/latest.pth'
+cfg = 'new_SAR_cfg.py'
+checkpoint = 'sar_output/latest.pth'
 
 ocr = MMOCR(
     det = None,

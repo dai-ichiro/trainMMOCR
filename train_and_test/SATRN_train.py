@@ -26,7 +26,8 @@ def main():
 
     # Modify label_convertor
     cfg.label_convertor.dict_file='dicts.txt'
-    cfg.label_convertor.max_seq_len = 40
+    cfg.label_convertor.max_seq_len = 35
+    cfg.model.label_convertor = cfg.label_convertor
     
     # Modify data
     cfg.data.train.datasets = [cfg.train]
@@ -38,7 +39,7 @@ def main():
     cfg.device = 'cuda'
 
     # Others
-    cfg.optimizer.lr = 0.001 /8
+    #cfg.optimizer.lr = 0.0003
     cfg.seed = 0
     cfg.runner.max_epochs = 1 # default 5 
     cfg.data.samples_per_gpu = 16
