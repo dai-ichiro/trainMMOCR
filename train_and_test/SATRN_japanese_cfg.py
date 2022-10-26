@@ -13,7 +13,6 @@ optimizer_config = dict(grad_clip=None)
 lr_config = dict(policy='step', step=[3, 4])
 runner = dict(type='EpochBasedRunner', max_epochs=6)
 checkpoint_config = dict(interval=1)
-max_seq_len = 25
 label_convertor = dict(
     type='AttnConvertor',
     dict_file='dicts.txt',
