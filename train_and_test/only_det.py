@@ -4,8 +4,6 @@ import os
 import numpy as np
 import cv2
 
-cfg = 'japanese_cfg.py'
-checkpoint = 'output/latest.pth'
 img = 'sampleimage/test1.png'
 
 # Detection: fcenet
