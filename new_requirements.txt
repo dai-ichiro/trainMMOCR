@@ -1,0 +1,8 @@
+mmocr==0.6.3
+mmdet==2.28.2
+openmim==0.3.6
+mmengine==0.6.0
+Pillow==9.4.0
+pandas==1.5.3
+openpyxl==3.1.2
+trdg==1.8.0
