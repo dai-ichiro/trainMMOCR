@@ -1,12 +1,5 @@
 # trainMMOCR
 
-## requirements
-~~~
-pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
-pip install mmcv-full==1.6.1 -f https://download.openmmlab.com/mmcv/dist/cu116/torch1.12.0/index.html
-pip install -r https://raw.githubusercontent.com/dai-ichiro/trainMMOCR/main/requirements.txt
-~~~
-
 ## new requirements
 ~~~
 pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
